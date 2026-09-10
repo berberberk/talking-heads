@@ -3,7 +3,7 @@
 import os
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
@@ -42,8 +42,15 @@ def config():
     }
 
     if avatar_provider == "did":
-        response["agent_id"] = (BASE_DIR / "agent_id.txt").read_text(encoding="utf-8").strip()
-        response["client_key"] = (BASE_DIR / "client_key.txt").read_text(encoding="utf-8").strip()
+        agent_id = os.getenv("DID_AGENT_ID", "").strip()
+        client_key = os.getenv("DID_CLIENT_KEY", "").strip()
+        if not agent_id or not client_key:
+            raise HTTPException(
+                status_code=503,
+                detail="D-ID configuration is unavailable.",
+            )
+        response["agent_id"] = agent_id
+        response["client_key"] = client_key
 
     return response
 
