@@ -1,5 +1,5 @@
-const SELECTION_KEY = "speaking-character.scenario-selection";
-const DISPLAY_KEY = "speaking-character.scenario-display";
+const SELECTION_KEY = "talking-heads.scenario-selection";
+const DISPLAY_KEY = "talking-heads.scenario-display";
 const MAX_SCENARIO_BYTES = 32 * 1024;
 const preset = document.getElementById("scenario-preset");
 const file = document.getElementById("scenario-file");

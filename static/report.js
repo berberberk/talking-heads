@@ -198,14 +198,14 @@ async function retryReport() {
 /** Повторяет только безопасно восстановимый preset либо начинает чистую free training. */
 function repeatScenario() {
     const repeat = buildRepeatScenarioState(result);
-    sessionStorage.removeItem("speaking-character.scenario-selection");
-    sessionStorage.removeItem("speaking-character.scenario-display");
+    sessionStorage.removeItem("talking-heads.scenario-selection");
+    sessionStorage.removeItem("talking-heads.scenario-display");
     if (!repeat.canRepeatDirectly) {
         location.assign("/");
         return;
     }
-    if (repeat.selection) sessionStorage.setItem("speaking-character.scenario-selection", JSON.stringify(repeat.selection));
-    if (repeat.display) sessionStorage.setItem("speaking-character.scenario-display", JSON.stringify(repeat.display));
+    if (repeat.selection) sessionStorage.setItem("talking-heads.scenario-selection", JSON.stringify(repeat.selection));
+    if (repeat.display) sessionStorage.setItem("talking-heads.scenario-display", JSON.stringify(repeat.display));
     location.assign("/training.html");
 }
 

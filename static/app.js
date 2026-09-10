@@ -74,7 +74,7 @@ function readScenarioSelection() {
 
     try {
 
-        const raw = sessionStorage.getItem("speaking-character.scenario-selection");
+        const raw = sessionStorage.getItem("talking-heads.scenario-selection");
         if (!raw) {
             return null;
         }
@@ -83,12 +83,12 @@ function readScenarioSelection() {
         const hasPreset = typeof selection.presetId === "string" && selection.presetId.length > 0;
         const hasMarkdown = typeof selection.markdown === "string" && selection.markdown.length > 0;
         if (hasPreset === hasMarkdown) {
-            sessionStorage.removeItem("speaking-character.scenario-selection");
+            sessionStorage.removeItem("talking-heads.scenario-selection");
             return null;
         }
 
         if (hasMarkdown && selection.markdown.length > 32 * 1024) {
-            sessionStorage.removeItem("speaking-character.scenario-selection");
+            sessionStorage.removeItem("talking-heads.scenario-selection");
             return null;
         }
 
@@ -96,7 +96,7 @@ function readScenarioSelection() {
 
     } catch {
 
-        sessionStorage.removeItem("speaking-character.scenario-selection");
+        sessionStorage.removeItem("talking-heads.scenario-selection");
         return null;
 
     }
@@ -119,7 +119,7 @@ function renderScenarioLabel() {
 
 /** Читает только безопасные display-метаданные сценария, не его Markdown-инструкции. */
 function readScenarioDisplay() {
-    try { return JSON.parse(sessionStorage.getItem("speaking-character.scenario-display") || "null"); } catch { return null; }
+    try { return JSON.parse(sessionStorage.getItem("talking-heads.scenario-display") || "null"); } catch { return null; }
 }
 
 /** Синхронизирует business action с состоянием созданной сессии и PTT. */
