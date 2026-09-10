@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Оркестрирует ручной Demo Day acceptance без новой product telemetry architecture.
+# Оркестрирует ручной acceptance-проверки без новой product telemetry architecture.
 set -Eeuo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -8,7 +8,7 @@ cd "$ROOT_DIR"
 usage() {
   printf '%s\n' "Usage: ./scripts/run-acceptance.sh [--skip-build] [--continue-on-test-failure]" \
     "       ./scripts/run-acceptance.sh --report-only <run-dir>" \
-    "" "One-command interactive Demo Day benchmark." \
+    "" "One-command interactive acceptance run." \
     "  --skip-build                 Do not run build and unit-test gate." \
     "  --continue-on-test-failure   Continue E2E after a failed gate." \
     "  --report-only <run-dir>      Regenerate report from raw artifacts."

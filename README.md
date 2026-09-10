@@ -99,7 +99,7 @@ curl http://localhost:8080/health
 
 Откройте `http://localhost:8000`. Frontend получает только `AVATAR_PROVIDER`, `CHAT_API_URL`, безопасные параметры Scribe (`stt_enabled`, model, language) и, для D-ID, публичные browser credentials. Gemini, Simli и ElevenLabs keys остаются в `.env` и Kotlin backend.
 
-Текущий legacy D-ID frontend также читает публичные browser-значения из игнорируемых `agent_id.txt` и `client_key.txt`; Simli-режиму эти файлы не нужны.
+Для D-ID укажите `DID_AGENT_ID` и `DID_CLIENT_KEY` только в локальном `.env`; эти значения передаются браузеру лишь для инициализации D-ID SDK. Simli-режиму они не нужны.
 
 ## Конфигурация
 
@@ -204,7 +204,7 @@ Content-Type: application/json
 - ElevenLabs получает word-safe чанки текста и отдаёт PCM16 16 kHz;
 - `simli_speaking` — диагностический proxy, а не доказательство lip-sync SLO: SDK не предоставляет timestamps видео-кадров.
 
-Перед защитой используйте [acceptance-чек-лист](./docs/demo-acceptance.md): пять фиксированных диалогов, реальные значения first-audio/interrupt и ручная offline-проверка lip-sync при 60 fps.
+Перед выпуском используйте [acceptance-чек-лист](./docs/acceptance.md): пять фиксированных диалогов, реальные значения first-audio/interrupt и ручная offline-проверка lip-sync при 60 fps.
 
 Целевые продуктовые SLO:
 

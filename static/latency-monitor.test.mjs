@@ -21,7 +21,7 @@ test("отчёт проверяет целевые latency для первого
     assert.deepEqual(report.diagnostics, { simli_transport_proxy_within_200ms: true });
 });
 
-test("voice first audio считается от ptt release и агрегируется для demo summary", () => {
+test("voice first audio считается от ptt release и агрегируется для quality summary", () => {
     const turn = createLatencyTurn(1_000, "voice-turn");
     turn.voiceInput = true;
     markLatency(turn, "ptt_release", 1_000);

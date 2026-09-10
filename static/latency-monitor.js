@@ -63,7 +63,7 @@ export function buildLatencyReport(turn, outcome) {
     };
 }
 
-/** Агрегирует измерения одинаковой метрики для честного demo summary без выдуманных чисел. */
+/** Агрегирует измерения одинаковой метрики для честного quality summary без выдуманных чисел. */
 export function summarizeMetric(reports, metricName, thresholdMs) {
     const values = reports
         .map((report) => report?.metrics?.[metricName])

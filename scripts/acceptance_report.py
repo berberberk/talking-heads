@@ -37,7 +37,7 @@ def write_json(path: Path, value: Any) -> None:
 
 
 def nearest_rank(values: list[float], ratio: float) -> float | None:
-    """Возвращает percentile методом nearest-rank для малых demo-выборок."""
+    """Возвращает percentile методом nearest-rank для малых acceptance-выборок."""
 
     if not values:
         return None
@@ -214,7 +214,7 @@ def write_markdown(run_dir: Path, report: dict[str, Any]) -> None:
                          if isinstance(row["result"].get("scenario"), dict)]
     provider = report.get("preflight", {}).get("avatar_provider", "NOT_MEASURED")
     scenario = ", ".join(sorted(set(value for value in session_scenarios if value))) or "NOT_MEASURED"
-    lines = ["# Demo Acceptance Results", "", f"Run: `{report['runId']}`", f"Date: {report['generatedAt']}",
+    lines = ["# Acceptance Results", "", f"Run: `{report['runId']}`", f"Date: {report['generatedAt']}",
              f"Avatar provider: {provider}", f"Scenario: {scenario}", "",
              "## Summary", "", "| Metric | Target | Result | Status |", "| --- | --- | --- | --- |"]
     first, interrupt, cancellation, scenarios, reports, lip = (report[key] for key in ("firstAudio", "interrupt", "cancellation", "scenarios", "reports", "lipSync"))
@@ -312,7 +312,7 @@ def parse_optional_bool(value: str | None) -> bool | None:
 def main() -> int:
     """Разбирает CLI подкоманды runner-а и локального повторного построения отчёта."""
 
-    parser = argparse.ArgumentParser(description="Generate TalkingHeads demo acceptance artifacts")
+    parser = argparse.ArgumentParser(description="Generate TalkingHeads acceptance artifacts")
     commands = parser.add_subparsers(dest="command", required=True)
     report_parser = commands.add_parser("generate", help="regenerate report from raw artifacts")
     report_parser.add_argument("--run-dir", required=True)

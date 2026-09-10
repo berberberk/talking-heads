@@ -1,4 +1,4 @@
-"""Unit-тесты честной агрегации demo acceptance artifacts."""
+"""Unit-тесты честной агрегации acceptance artifacts."""
 
 from __future__ import annotations
 
