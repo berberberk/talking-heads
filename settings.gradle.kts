@@ -1,1 +1,1 @@
-rootProject.name = "speaking-character-backend"
+rootProject.name = "talking-heads-backend"
