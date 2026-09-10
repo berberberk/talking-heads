@@ -1,4 +1,4 @@
-package ru.itimperial.speakingcharacter.config
+package talkingheads.config
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

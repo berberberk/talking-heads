@@ -1,4 +1,4 @@
-package ru.itimperial.speakingcharacter.service
+package talkingheads.service
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
@@ -7,7 +7,7 @@ import io.ktor.http.HttpStatusCode
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertFalse
-import ru.itimperial.speakingcharacter.config.AppConfig
+import talkingheads.config.AppConfig
 
 class SimliSessionTokenClientTest {
     /** Не допускает попадание ошибочно возвращённого Simli session_token в backend log. */

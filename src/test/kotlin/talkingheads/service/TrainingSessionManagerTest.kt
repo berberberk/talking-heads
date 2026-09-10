@@ -1,4 +1,4 @@
-package ru.itimperial.speakingcharacter.service
+package talkingheads.service
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -12,21 +12,21 @@ import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
-import ru.itimperial.speakingcharacter.config.AppConfig
-import ru.itimperial.speakingcharacter.llm.LlmClient
-import ru.itimperial.speakingcharacter.model.ServerEvent
-import ru.itimperial.speakingcharacter.model.TrainingMessage
-import ru.itimperial.speakingcharacter.model.TrainingSession
-import ru.itimperial.speakingcharacter.repository.TrainingRepository
-import ru.itimperial.speakingcharacter.scenario.ScenarioCatalog
-import ru.itimperial.speakingcharacter.scenario.ScenarioPromptProvider
-import ru.itimperial.speakingcharacter.scenario.ScenarioResolver
+import talkingheads.config.AppConfig
+import talkingheads.llm.LlmClient
+import talkingheads.model.ServerEvent
+import talkingheads.model.TrainingMessage
+import talkingheads.model.TrainingSession
+import talkingheads.repository.TrainingRepository
+import talkingheads.scenario.ScenarioCatalog
+import talkingheads.scenario.ScenarioPromptProvider
+import talkingheads.scenario.ScenarioResolver
 import java.nio.file.Path
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertContains
 import kotlin.test.assertTrue
-import ru.itimperial.speakingcharacter.scenario.ScenarioSelection
+import talkingheads.scenario.ScenarioSelection
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class TrainingSessionManagerTest {
@@ -53,7 +53,7 @@ class TrainingSessionManagerTest {
 
         assertEquals(1, evaluationCalls)
         assertEquals(first.report, second.report)
-        assertEquals(ru.itimperial.speakingcharacter.model.SessionStatus.FINISHED, second.status)
+        assertEquals(talkingheads.model.SessionStatus.FINISHED, second.status)
     }
 
     /** Ошибка evaluation сохраняет завершённую тренировку и разрешает безопасный retry. */
@@ -72,8 +72,8 @@ class TrainingSessionManagerTest {
 
         manager.finish(session.id)
         val saved = requireNotNull(repo.get(session.id))
-        assertEquals(ru.itimperial.speakingcharacter.model.SessionStatus.FINISHED, saved.status)
-        assertEquals(ru.itimperial.speakingcharacter.model.ReportStatus.FAILED, saved.reportStatus)
+        assertEquals(talkingheads.model.SessionStatus.FINISHED, saved.status)
+        assertEquals(talkingheads.model.ReportStatus.FAILED, saved.reportStatus)
         assertTrue(saved.finishedAt != null)
         assertEquals(null, saved.report)
     }
@@ -99,8 +99,8 @@ class TrainingSessionManagerTest {
         val failed = manager.finish(session.id)
         val retried = manager.retryReport(session.id)
 
-        assertEquals(ru.itimperial.speakingcharacter.model.ReportStatus.FAILED, failed.reportStatus)
-        assertEquals(ru.itimperial.speakingcharacter.model.ReportStatus.READY, retried.reportStatus)
+        assertEquals(talkingheads.model.ReportStatus.FAILED, failed.reportStatus)
+        assertEquals(talkingheads.model.ReportStatus.READY, retried.reportStatus)
         assertEquals(failed.finishedAt, retried.finishedAt)
         assertTrue(retried.messages.isNotEmpty())
         assertEquals(3, calls)

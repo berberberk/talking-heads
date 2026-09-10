@@ -1,4 +1,4 @@
-package ru.itimperial.speakingcharacter.scenario
+package talkingheads.scenario
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

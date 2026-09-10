@@ -1,4 +1,4 @@
-package ru.itimperial.speakingcharacter.service
+package talkingheads.service
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
@@ -12,7 +12,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertNotEquals
-import ru.itimperial.speakingcharacter.config.AppConfig
+import talkingheads.config.AppConfig
 
 class ElevenLabsScribeTokenClientTest {
     @Test

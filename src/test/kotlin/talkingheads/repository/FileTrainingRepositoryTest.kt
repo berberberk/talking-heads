@@ -1,4 +1,4 @@
-package ru.itimperial.speakingcharacter.repository
+package talkingheads.repository
 
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -8,9 +8,9 @@ import kotlin.io.path.deleteRecursively
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
-import ru.itimperial.speakingcharacter.model.MessageRole
-import ru.itimperial.speakingcharacter.model.TrainingMessage
-import ru.itimperial.speakingcharacter.model.TrainingSession
+import talkingheads.model.MessageRole
+import talkingheads.model.TrainingMessage
+import talkingheads.model.TrainingSession
 
 /** Проверяет file persistence session aggregate между независимыми экземплярами repository. */
 class FileTrainingRepositoryTest {
@@ -18,7 +18,7 @@ class FileTrainingRepositoryTest {
     @OptIn(ExperimentalPathApi::class)
     @Test
     fun `persists aggregate update across repository restart`() = runTest {
-        val directory = Files.createTempDirectory("speaking-character-repository-")
+        val directory = Files.createTempDirectory("talking-heads-repository-")
         val json = Json { encodeDefaults = true; explicitNulls = false }
         try {
             val initial = TrainingSession(

@@ -1,4 +1,4 @@
-package ru.itimperial.speakingcharacter.service
+package talkingheads.service
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

@@ -1,4 +1,4 @@
-package ru.itimperial.speakingcharacter.http
+package talkingheads.http
 
 import io.ktor.client.request.post
 import io.ktor.client.statement.bodyAsText
@@ -8,8 +8,8 @@ import io.ktor.server.testing.testApplication
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
-import ru.itimperial.speakingcharacter.config.AppConfig
-import ru.itimperial.speakingcharacter.module
+import talkingheads.config.AppConfig
+import talkingheads.module
 
 class SpeechRoutesTest {
     @Test

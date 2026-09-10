@@ -1,4 +1,4 @@
-package ru.itimperial.speakingcharacter.http
+package talkingheads.http
 
 import io.ktor.client.request.get
 import io.ktor.client.request.header
@@ -17,8 +17,8 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import ru.itimperial.speakingcharacter.config.AppConfig
-import ru.itimperial.speakingcharacter.module
+import talkingheads.config.AppConfig
+import talkingheads.module
 
 /** Проверяет публичные HTTP-контракты выбора сценария и безопасного результата сессии. */
 class ScenarioApiContractTest {

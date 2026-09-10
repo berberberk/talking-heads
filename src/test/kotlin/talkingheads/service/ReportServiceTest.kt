@@ -1,15 +1,15 @@
-package ru.itimperial.speakingcharacter.service
+package talkingheads.service
 
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
-import ru.itimperial.speakingcharacter.llm.LlmClient
-import ru.itimperial.speakingcharacter.model.MessageRole
-import ru.itimperial.speakingcharacter.model.TrainingMessage
-import ru.itimperial.speakingcharacter.scenario.ScenarioDefinition
-import ru.itimperial.speakingcharacter.scenario.ScenarioSnapshot
-import ru.itimperial.speakingcharacter.scenario.ScenarioSource
-import ru.itimperial.speakingcharacter.scenario.ScenarioStage
+import talkingheads.llm.LlmClient
+import talkingheads.model.MessageRole
+import talkingheads.model.TrainingMessage
+import talkingheads.scenario.ScenarioDefinition
+import talkingheads.scenario.ScenarioSnapshot
+import talkingheads.scenario.ScenarioSource
+import talkingheads.scenario.ScenarioStage
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertContains
