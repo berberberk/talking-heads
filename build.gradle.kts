@@ -4,7 +4,7 @@ plugins {
     application
 }
 
-group = "ru.itimperial"
+group = "talkingheads"
 version = "0.2.0"
 
 repositories {
@@ -19,7 +19,7 @@ kotlin {
 }
 
 application {
-    mainClass.set("ru.itimperial.speakingcharacter.ApplicationKt")
+    mainClass.set("talkingheads.ApplicationKt")
 }
 
 dependencies {
