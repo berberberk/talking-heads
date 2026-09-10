@@ -19,7 +19,7 @@
 
 ## Что сохранено из текущего `backend`
 
-- package/project structure `ru.itimperial.speakingcharacter`.
+- package/project structure `talkingheads`.
 - `/api/sessions/*`.
 - `/ws/training/{sessionId}`.
 - monotonic `generationId` и stale-generation protection.

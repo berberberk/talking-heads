@@ -312,7 +312,7 @@ def parse_optional_bool(value: str | None) -> bool | None:
 def main() -> int:
     """Разбирает CLI подкоманды runner-а и локального повторного построения отчёта."""
 
-    parser = argparse.ArgumentParser(description="Generate SpeakingCharacter demo acceptance artifacts")
+    parser = argparse.ArgumentParser(description="Generate TalkingHeads demo acceptance artifacts")
     commands = parser.add_subparsers(dest="command", required=True)
     report_parser = commands.add_parser("generate", help="regenerate report from raw artifacts")
     report_parser.add_argument("--run-dir", required=True)
